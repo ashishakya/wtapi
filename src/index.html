@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../dist/wtapi.v2.js"></script>
+    <script>
+        function oauth2Callback(params) {
+            api.handleCallbackData(params);
+        }
+
+        var api = new WTAPI();
+
+        api.setOptions({
+            pbxUrl: 'your_pbx_domain.wildixin.com',
+            applicationId: 'your_oauth2_application_id_to_be_generated_from_x_bees_admin',
+            redirectUri: 'https://your_domain/oauth2redirect.html',
+        });
+
+        api.on('connected', () => {
+            console.log('Connected');
+        });
+        api.on('disconnected', () => {
+            console.log('Disconnected');
+        });
+
+        api.on('oauthAuthorizationError', (error) => {
+            console.error('OAuth authorization error', error);
+        });
+        api.on('oauthAuthorizationSuccess', (data) => {
+            console.log('OAuth authorization success', data);
+        });
+
+        api.connect();
+    </script>
+</head>
+
+<body>
+    hello this is wtapi
+</body>
+
+</html>
