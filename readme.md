@@ -1,3 +1,5 @@
+* Open /src/index.html and replace the setOptions values
+
 * Run `npm run serve`
 
 * Navigate to /src in web
